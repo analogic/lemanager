@@ -17,6 +17,12 @@ include("_header.php");
     <p><a href="index">&larr; Back to the certificates list</a></p>
 </div>
 
+<?php if(!empty($error)) { ?>
+    <div class="error">
+        <?php e($error); ?>
+    </div>
+<?php } ?>
+
 <div class="card">
     <h3>Domains</h3>
     <ul>
@@ -24,6 +30,8 @@ include("_header.php");
         <li><?php e($domain) ?></li>
         <?php } ?>
     </ul>
+
+    <a href="_reissue.php" style="margin-top: 1em;" class="btn btn-new">Try to reissue certificate</a>
 </div>
 
 <?php if(count($certificate->listCertificateFiles()) > 0) { ?>
@@ -80,6 +88,7 @@ include("_header.php");
         <p><em>certificate was not yet issued, please wait...</em></p>
     </div>
 <?php } ?>
+
 
 
 <?php
