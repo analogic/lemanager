@@ -8,7 +8,6 @@ RUN apk --update add php php-cli php-fpm php-curl php-openssl php-phar php-json 
 
 ADD bin /opt/lemanager/bin/
 ADD src /opt/lemanager/src/
-ADD vendor /opt/lemanager/vendor/
 ADD web /opt/lemanager/web/
 
 COPY composer.* /opt/lemanager/
