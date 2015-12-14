@@ -31,7 +31,10 @@ include("_header.php");
         <?php } ?>
     </ul>
 
-    <a href="_reissue?domain=<?php e($domain) ?>" style="margin-top: 1em;" class="btn btn-new">Try to reissue certificate</a>
+
+    <a href="_reissue?domain=<?php e($domain) ?>" onclick="confirm('Are you sure?')" style="margin-top: 1em;" class="btn btn-new">Try to reissue certificate</a>
+
+    <a href="create.php?domain=<?php e($domain) ?>&san=<?php e(join(',', $certificate->getSAN())); ?>" style="margin-top: 1em;" class="btn btn-new">Add/Change domains</a>
 </div>
 
 <?php if(count($certificate->listCertificateFiles()) > 0) { ?>
@@ -88,8 +91,6 @@ include("_header.php");
         <p><em>certificate was not yet issued, please wait...</em></p>
     </div>
 <?php } ?>
-
-
 
 <?php
 include("_footer.php");

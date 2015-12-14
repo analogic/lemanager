@@ -30,6 +30,9 @@ class Certificate {
 
     public function getExpirationDate()
     {
+        if(!is_file($this->getPath()."/cert.pem")) {
+            return null;
+        }
         $data = openssl_x509_parse(file_get_contents($this->getPath()."/cert.pem"));
 
         $dt = new \DateTime();
@@ -85,7 +88,12 @@ class Certificate {
 
     public function isExpiringOrInvalid()
     {
-        $interval = (new \DateTime('now'))->diff($this->getExpirationDate());
+        $ed = $this->getExpirationDate();
+        if(!$ed) {
+            // invalid
+            return true;
+        }
+        $interval = (new \DateTime('now'))->diff($ed);
 
         // LE certificates gets 90 days to expiry
 

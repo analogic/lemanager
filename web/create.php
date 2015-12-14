@@ -3,8 +3,9 @@
 include("_config.php");
 
 $error = '';
-if(!empty($_POST)) {
 
+// create new
+if(!empty($_POST)) {
     try {
         $domain = $_POST['domain'];
         $sans = explode("\n", $_POST['san']);
@@ -16,9 +17,7 @@ if(!empty($_POST)) {
     } catch(\Exception $e) {
         $error = $e->getMessage();
     }
-
 }
-
 
 $title = "Issue new certificate";
 include("_header.php");
@@ -41,12 +40,12 @@ include("_header.php");
 
         <div class="form-row">
             <label for="domain">Base domain - Common Name (CN)</label>
-            <input type="text" autofocus="autofocus" required="required" name="domain" id="domain" pattern="[a-z0-9.-]+\.[a-z]{2,63}" title="Domain name" placeholder="example.com" />
+            <input type="text" autofocus="autofocus" required="required" name="domain" id="domain" pattern="[a-z0-9.-]+\.[a-z]{2,63}" title="Domain name" placeholder="example.com" value="<?php echo isset($_GET['domain']) ? er($_GET['domain']) : '' ?>" />
         </div>
 
         <div class="form-row">
             <label for="san">Other domains - Subject Alternative Names (SAN)</label>
-            <textarea name="san" id="san" placeholder="www.example.com"></textarea>
+            <textarea name="san" id="san" placeholder="www.example.com"><?php echo isset($_GET['san']) ? er(implode("\n",explode(',',$_GET['san']))) : '' ?></textarea>
             <span class="help">(domain name per line)</span>
         </div>
 
