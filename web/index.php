@@ -30,7 +30,7 @@ include("_header.php");
                 <?php e($certificate->getName()) ?>
             </a>
         </th>
-        <td><?php e(join(", ", $certificate->getSAN())) ?></td>
+        <td><?php e(mb_strimwidth(join(", ", $certificate->getSAN()), 0, 40, '...')) ?></td>
         <?php if($certificate->isPending()) { ?>
             <td class="pending"><em>(pending)</em></td>
         <?php } else { ?>
