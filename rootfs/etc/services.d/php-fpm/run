@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+exec php-fpm -c /etc/php/php-fpm.conf -F -R

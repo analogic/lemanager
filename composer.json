@@ -1,0 +1,14 @@
+{
+  "require": {
+    "monolog/monolog": "^1",
+    "swiftmailer/swiftmailer": "5.x-dev",
+    "symfony/console": "^3.0",
+    "symfony/yaml": "^2.8",
+    "analogic/lescript": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src"
+    }
+  }
+}
