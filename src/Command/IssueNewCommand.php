@@ -29,7 +29,6 @@ class IssueNewCommand extends BaseCommand
         }
 
         foreach($certificates as $certificate) {
-            if(!$certificate->isPending()) continue;
 
             $logger = $this->getLogger($certificate);
             $le = $this->getLescript($logger);
