@@ -11,7 +11,7 @@ try {
 
     $ce = new \App\CertificateHandler();
     $ce->issueNewCertificate($domain->getName(), $domain->getSAN());
-    redirect("detail?domain=$domain");
+    redirect("detail?domain=".$domain->getName());
 
 } catch(\Exception $e) {
     $error = $e->getMessage();

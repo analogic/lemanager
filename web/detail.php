@@ -31,7 +31,7 @@ include("_header.php");
         <?php } ?>
     </ul>
 
-    <a href="_reissue?<?php e($domain) ?>" style="margin-top: 1em;" class="btn btn-new">Try to reissue certificate</a>
+    <a href="_reissue?domain=<?php e($domain) ?>" style="margin-top: 1em;" class="btn btn-new">Try to reissue certificate</a>
 </div>
 
 <?php if(count($certificate->listCertificateFiles()) > 0) { ?>
