@@ -8,14 +8,14 @@ Simple containerized web application for managing, issuing certificates (and ema
 
 2. download docker container and run it:
 
-```
-~# docker run --name lemanager \
-  -v */certificates_dir*:/data \ 
-  -e "HTTP_PASSWORD=*your_password*" \
-  -e "HOSTNAME=*cert.example.com*" \
-  -p *80*:80 \
-  analogic/lemanager
-```
+    ```
+    ~# docker run --name lemanager \
+      -v */certificates_dir*:/data \ 
+      -e "HTTP_PASSWORD=*your_password*" \
+      -e "HOSTNAME=*cert.example.com*" \
+      -p *80*:80 \
+      analogic/lemanager
+    ```
 
    If you have port 80 in use you can use your existing webserver as reverse proxy (see NGiNX snippet).
 
@@ -23,20 +23,20 @@ Simple containerized web application for managing, issuing certificates (and ema
 
 4. in folder */certificates_dir/example.com* you should find new certificate if everything goes ok. Add certificate to your webserver. NGiNX example:
 
-```
-server {
-    listen       443 ssl http2;
-    server_name  example.com;
-    
-    **ssl_certificate */certificates_dir/example.com*/fullchain.pem;
-    ssl_certificate_key */certificates_dir/example.com*/private.pem;
-    ssl_trusted_certificate */certificates_dir/example.com*/fullchain.pem;**
-    
-    add_header Strict-Transport-Security "max-age=31536000; includeSubdomains;";
-    
-    ...
-}
-```
+    ```
+    server {
+        listen       443 ssl http2;
+        server_name  example.com;
+        
+        **ssl_certificate */certificates_dir/example.com*/fullchain.pem;
+        ssl_certificate_key */certificates_dir/example.com*/private.pem;
+        ssl_trusted_certificate */certificates_dir/example.com*/fullchain.pem;**
+        
+        add_header Strict-Transport-Security "max-age=31536000; includeSubdomains;";
+        
+        ...
+    }
+    ```
 
 5. reload your webserver with something like: *service nginx reload* or *killall -HUP nginx*. For doing reloads regularly when certificates automaticly renews you might find handy incrond which watch changes of filesystem and exec defined command. Or simply ad reload/HUP command to your daily/weekly cron. LEManager renews certificate every day at 1:01 after 14 days of its existence.
 
