@@ -5,6 +5,7 @@ Simple containerized web application for managing, issuing certificates (and ema
 ## Installation
 
 1. direct domain like **cert.example.com** to your server where LEManager going to be installed
+
 2. download docker container and run it:
 
 ```
@@ -17,7 +18,9 @@ Simple containerized web application for managing, issuing certificates (and ema
 ```
 
    If you have port 80 in use you can use your existing webserver as reverse proxy (see NGiNX snippet).
+
 3. go to *http://cert.example.com*, login with username *admin* and password *your_password*, setup "Email alerts settings" and issue new cert for *example.com* 
+
 4. in folder */certificates_dir/example.com* you should find new certificate if everything goes ok. Add certificate to your webserver. NGiNX example:
 
 ```
@@ -34,6 +37,7 @@ server {
     ...
 }
 ```
+
 5. reload your webserver with something like: *service nginx reload* or *killall -HUP nginx*. For doing reloads regularly when certificates automaticly renews you might find handy incrond which watch changes of filesystem and exec defined command. Or simply ad reload/HUP command to your daily/weekly cron.
 
 ## NGiNX snippet for proxiing challanges only
