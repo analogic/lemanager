@@ -10,5 +10,5 @@
 <body>
 
 <div class="settings hide-small">
-    <a href="alerts">Email alerts settings</a> | <a href="help">Lemanager help</a>
+    <a href="alerts">Email alerts settings</a> | <a href="help">LEManager help</a>
 </div>

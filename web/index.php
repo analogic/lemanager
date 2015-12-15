@@ -34,7 +34,7 @@ include("_header.php");
         <?php if($certificate->isPending()) { ?>
             <td class="pending"><em>(pending)</em></td>
         <?php } else { ?>
-            <td class="<?php echo $certificate->isExpiringOrInvalid() ? 'err' : 'ok' ?>"><?php echo $certificate->getExpirationDate()->format('Y-m-d H:i:s') ?> - <?php echo $certificate->getExpirationInterval() ?></td>
+            <td class="<?php echo $certificate->isExpiringOrInvalid() ? 'err' : 'ok' ?>"><abbr title="<?php echo $certificate->getExpirationDate()->format('Y-m-d H:i:s') ?>"><?php echo $certificate->getExpirationInterval() ?></abbr></td>
         <?php } ?>
         <td class="tools">
 

@@ -26,7 +26,7 @@ http {
 
     server {
         #
-        # Lemanager admin itself
+        # LEManager admin itself
         #
         listen 80;
         server_name <?php echo $hostname ?>;

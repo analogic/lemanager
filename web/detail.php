@@ -23,6 +23,12 @@ include("_header.php");
     </div>
 <?php } ?>
 
+<?php if(isRunning()) { ?>
+    <div class="running">
+        <div class="loader"></div> <span style="padding-left: 1.5em;">Worker script is running, please wait for results. <a style="text-decoration: underline" href="detail?domain=<?php e($certificate->getName()) ?>">Refresh</a>.</span>
+    </div>
+<?php } ?>
+
 <div class="card">
     <h3>Domains</h3>
     <ul>
