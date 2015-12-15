@@ -38,7 +38,7 @@ server {
 }
 ```
 
-5. reload your webserver with something like: *service nginx reload* or *killall -HUP nginx*. For doing reloads regularly when certificates automaticly renews you might find handy incrond which watch changes of filesystem and exec defined command. Or simply ad reload/HUP command to your daily/weekly cron.
+5. reload your webserver with something like: *service nginx reload* or *killall -HUP nginx*. For doing reloads regularly when certificates automaticly renews you might find handy incrond which watch changes of filesystem and exec defined command. Or simply ad reload/HUP command to your daily/weekly cron. LEManager renews certificate every day at 1:01 after 14 days of its existence.
 
 ## NGiNX snippet for proxiing challanges only
 
