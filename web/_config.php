@@ -29,7 +29,7 @@ function redirect($location)
 function findLinks($text)
 {
     $regex = "/((http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?)/";
-    return preg_replace($regex, '<a href="\$1">$1</a>', $text);
+    return preg_replace($regex, '<a href="\$1">\$1</a>', $text);
 }
 
 /**

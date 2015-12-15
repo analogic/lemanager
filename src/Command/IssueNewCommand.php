@@ -4,6 +4,7 @@ namespace App\Command;
 
 use App\CertificateHandler;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class IssueNewCommand extends BaseCommand
@@ -12,6 +13,7 @@ class IssueNewCommand extends BaseCommand
     {
         $this
             ->setName('issue:new')
+            ->addOption('domain', null, InputOption::VALUE_REQUIRED)
             ->setDescription('Issue certificates for new request');
     }
 
@@ -20,8 +22,13 @@ class IssueNewCommand extends BaseCommand
         $ch = new CertificateHandler();
         $ah = $this->getEmailAlertHandler();
 
-        foreach($ch->getAll() as $certificate) {
-            if(!$certificate->isPending()) continue;
+        if($input->getOption('domain')) {
+            $certificates = array($ch->findByDomain($input->getOption('domain')));
+        } else {
+            $certificates = $ch->getAll();
+        }
+
+        foreach($certificates as $certificate) {
 
             $logger = $this->getLogger($certificate);
             $le = $this->getLescript($logger);

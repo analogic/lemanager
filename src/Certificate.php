@@ -42,17 +42,17 @@ class Certificate {
 
     public function getExpirationInterval()
     {
-        function pluralize( $count, $text ) {
-            return $count . ( ( $count == 1 ) ? ( " $text" ) : ( " ${text}s" ) );
-        }
+        $pluralize = function ($count, $text) {
+            return $count . (($count == 1) ? (" $text") : (" ${text}s"));
+        };
 
         $interval = (new \DateTime('now'))->diff($this->getExpirationDate());
 
         $string = '';
 
-        if ( $v = $interval->m >= 1 ) $string .= pluralize( $interval->m, 'month' ). ' ';
-        if ( $v = $interval->d >= 1 ) $string .= pluralize( $interval->d, 'day' );
-        $string .= ($interval->invert ? ' ago' : '' );
+        if ($v = $interval->m >= 1) $string .= $pluralize($interval->m, 'month') . ' ';
+        if ($v = $interval->d >= 1) $string .= $pluralize($interval->d, 'day');
+        $string .= ($interval->invert ? ' ago' : '');
 
         return $string;
     }

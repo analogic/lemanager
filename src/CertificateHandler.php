@@ -2,8 +2,6 @@
 
 namespace App;
 
-use App\Command\IssueNewCommand;
-
 class CertificateHandler
 {
     public function issueNewCertificate($cn, array $san)
@@ -32,7 +30,7 @@ class CertificateHandler
         }
 
         // TODO: rewrite, good enough for now
-        exec('/usr/bin/php '.__DIR__."/../bin/cli.php issue:new > /dev/null 2>&1 &");
+        exec('/usr/bin/php '.__DIR__."/../bin/cli.php issue:new --domain $cn > /dev/null 2>&1 &");
     }
 
     private function validateDomain($domain)
