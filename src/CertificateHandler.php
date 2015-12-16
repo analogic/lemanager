@@ -35,7 +35,7 @@ class CertificateHandler
 
     private function validateDomain($domain)
     {
-        return preg_match('~^(([a-zA-Z]{1})|([a-zA-Z]{1}[a-zA-Z]{1})|([a-zA-Z]{1}[0-9]{1})|([0-9]{1}[a-zA-Z]{1})|([a-zA-Z0-9][a-zA-Z0-9-_]{1,61}[a-zA-Z0-9]))\.([a-zA-Z]{2,6}|[a-zA-Z0-9-]{2,30}\.[a-zA-Z]{2,3})$~', $domain);
+        return preg_match('~^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$~i', $domain);
     }
 
     /**
