@@ -10,7 +10,7 @@ if(!$domain) e404();
 try {
 
     $ce = new \App\CertificateHandler();
-    $ce->issueNewCertificate($domain->getName(), $domain->getSAN());
+    $ce->issueNewCertificate($domain->getName(), $domain->getSAN(), true);
     redirect("detail?domain=".$domain->getName());
 
 } catch(\Exception $e) {

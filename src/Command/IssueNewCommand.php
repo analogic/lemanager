@@ -13,6 +13,7 @@ class IssueNewCommand extends BaseCommand
     {
         $this
             ->setName('issue:new')
+            ->addOption('reuse-csr', null, InputOption::VALUE_NONE, 'Reuse CSR')
             ->addOption('domain', null, InputOption::VALUE_REQUIRED)
             ->setDescription('Issue certificates for new request');
     }
@@ -35,7 +36,7 @@ class IssueNewCommand extends BaseCommand
 
             try {
                 $le->initAccount();
-                $le->signDomains($certificate->getAllDomains());
+                $le->signDomains($certificate->getAllDomains(), $input->getOption('reuse-csr'));
 
                 $ah->sendIssuedLog($certificate);
 

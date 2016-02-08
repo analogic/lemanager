@@ -31,7 +31,7 @@ class RenewAllCommand extends BaseCommand
 
             try {
                 $le->initAccount();
-                $le->signDomains($certificate->getAllDomains());
+                $le->signDomains($certificate->getAllDomains(), true);
 
                 $ah->sendRenewLog($certificate);
 
