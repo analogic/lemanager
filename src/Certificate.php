@@ -2,6 +2,8 @@
 
 namespace App;
 
+require_once("_config.php");
+
 class Certificate {
 
     private $name;
@@ -13,7 +15,7 @@ class Certificate {
 
     public function getPath()
     {
-        return "/data/".$this->name;
+        return DATA_DIR . $this->name;
     }
 
     public function getSAN()

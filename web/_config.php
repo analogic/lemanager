@@ -1,5 +1,18 @@
 <?php
 
+/**********************************************************************************
+ *  Defines the path to data dir on the server
+ *
+ * 'DATA_DIR' , '/data/' => Docker, default
+ * 'DATA_DIR' , dirname(__DIR__) . '/data/' => If data is in lemanager folder tree (lemanager/data/)
+ * 'DATA_DIR' , '/fullpath/to/data/' => path to data dir
+ *
+ **********************************************************************************/
+
+ define('DATA_DIR', '/data/');
+
+ /*********************************************************************************/
+
 error_reporting(-1);
 ini_set("display_errors", 1);
 date_default_timezone_set('UTC');

@@ -2,6 +2,8 @@
 
 namespace App;
 
+require_once("_config.php");
+
 class CertificateHandler
 {
     public function issueNewCertificate($cn, array $san, $reuseCSR = false)
@@ -21,8 +23,8 @@ class CertificateHandler
             }
         }
 
-        @mkdir("/data/$cn");
-        $path = "/data/$cn/domains";
+        @mkdir(DATA_DIR . "$cn");
+        $path = DATA_DIR . "$cn/domains";
 
         @file_put_contents($path, join("\n", $san));
         if(!@is_file($path)) {
@@ -45,7 +47,7 @@ class CertificateHandler
     {
         $certificates = [];
 
-        foreach(glob('/data/*') as $path) {
+        foreach(glob(DATA_DIR . '*') as $path) {
             if(!is_dir($path) || basename($path) == "_account") continue;
 
             $name = basename($path);
@@ -61,10 +63,9 @@ class CertificateHandler
      */
     public function findByDomain($domain)
     {
-        if(!is_dir('/data/'.$domain)) {
+        if(!is_dir(DATA_DIR . $domain)) {
             return null;
         }
-
         return new Certificate($domain);
     }
 
