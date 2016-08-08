@@ -13,7 +13,7 @@ RUN cd /opt/lemanager && \
     php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
     php composer-setup.php && \
     php -r "unlink('composer-setup.php');" && \
-     && php composer.phar install
+    php composer.phar install
 
 ADD rootfs /
 EXPOSE 80
