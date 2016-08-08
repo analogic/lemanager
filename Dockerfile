@@ -9,11 +9,8 @@ ADD src /opt/lemanager/src
 ADD web /opt/lemanager/web
 COPY composer.* /opt/lemanager/
 
-RUN cd /opt/lemanager && \
-    php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
-    php composer-setup.php && \
-    php -r "unlink('composer-setup.php');" && \
-    php composer.phar install
+ADD https://getcomposer.org/installer /opt/lemanager/composer-setup.php
+RUN cd /opt/lemanager && php composer-setup.php && rm composer-setup.php && php composer.phar install
 
 ADD rootfs /
 EXPOSE 80
