@@ -8,7 +8,7 @@ Simple containerized web application for managing, issuing certificates (and ema
 
 2. download docker container and run it:
 
-    ```
+    ```console
     ~# docker run --name lemanager \
       -v */certificates_dir*:/data \ 
       -e "HTTP_PASSWORD=*your_password*" \

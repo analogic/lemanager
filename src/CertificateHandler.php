@@ -4,7 +4,7 @@ namespace App;
 
 class CertificateHandler
 {
-    public function issueNewCertificate($cn, array $san)
+    public function issueNewCertificate($cn, array $san, $reuseCSR = false)
     {
         $cn = trim($cn);
         $san[] = $cn;
@@ -30,7 +30,7 @@ class CertificateHandler
         }
 
         // TODO: rewrite, good enough for now
-        exec('/usr/bin/php '.__DIR__."/../bin/cli.php issue:new --domain $cn > /dev/null 2>&1 &");
+        exec('/usr/bin/php '.__DIR__."/../bin/cli.php issue:new --domain $cn ".($reuseCSR ? '--reuse-csr' : '')." > /dev/null 2>&1 &");
     }
 
     private function validateDomain($domain)
