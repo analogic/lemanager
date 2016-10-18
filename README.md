@@ -40,7 +40,7 @@ Simple containerized web application for managing, issuing certificates (and ema
 
 5. reload your webserver with something like: *service nginx reload* or *killall -HUP nginx*. For doing reloads regularly when certificates automaticly renews you might find handy incrond which watch changes of filesystem and exec defined command. Or simply ad reload/HUP command to your daily/weekly cron. LEManager renews certificate every day at 1:01 after 14 days of its existence.
 
-## NGiNX snippet for proxiing challanges only
+## NGiNX snippet for proxying challenges only
 
 ```
 server {
@@ -67,6 +67,6 @@ server {
 ![LEManager screenshot 2](https://github.com/analogic/lemanager/raw/master/web/images/screenshot-2.png)
 ![LEManager screenshot 3](https://github.com/analogic/lemanager/raw/master/web/images/screenshot-3.png)
 
-## Why i created LEManager?
+## Why I created LEManager?
 
 Because of implementation of Let's Encrypt to [Poste.io](https://poste.io)!
