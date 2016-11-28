@@ -6,13 +6,13 @@ use \Symfony\Component\Yaml\Yaml;
 
 $config = new \App\Configuration\Email();
 
-if(is_file("/data/smtp.yml")) {
-    $config->loadConfig(Yaml::parse(file_get_contents('/data/smtp.yml')));
+if(is_file(DATA_DIR . "smtp.yml")) {
+    $config->loadConfig(Yaml::parse(file_get_contents(DATA_DIR . 'smtp.yml')));
 }
 
 if(!empty($_POST)) {
     $config->loadConfig($_POST);
-    file_put_contents('/data/smtp.yml', Yaml::dump($config->export()));
+    file_put_contents(DATA_DIR . 'smtp.yml', Yaml::dump($config->export()));
     $em = new \App\EmailAlertHandler($config);
     try {
         $em->sendTestMessage();
@@ -130,3 +130,4 @@ include("_header.php");
 
 <?php
 include("_footer.php");
+?>

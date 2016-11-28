@@ -5,6 +5,8 @@
 
 namespace App\Command;
 
+require_once("_config.php");
+
 use Analogic\ACME\Lescript;
 use App\Certificate;
 use App\Configuration\Email;
@@ -33,8 +35,8 @@ abstract class BaseCommand extends Command
     {
         $config = new Email();
 
-        if(is_file("/data/smtp.yml")) {
-            $config->loadConfig(Yaml::parse(file_get_contents('/data/smtp.yml')));
+        if(is_file(DATA_DIR . "smtp.yml")) {
+            $config->loadConfig(Yaml::parse(file_get_contents(DATA_DIR . 'smtp.yml')));
         }
 
         return new EmailAlertHandler($config);
@@ -42,6 +44,6 @@ abstract class BaseCommand extends Command
 
     protected function getLescript(Logger $logger)
     {
-        return new Lescript('/data', "/opt/lemanager/web/", $logger);
+        return new Lescript(DATA_DIR . '', dirname(dirname(__DIR__)) . "/web", $logger);
     }
 }
