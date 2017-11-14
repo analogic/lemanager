@@ -9,16 +9,16 @@
     "packages": [
         {
             "name": "analogic/lescript",
-            "version": "0.1.5",
+            "version": "0.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/analogic/lescript.git",
-                "reference": "4d07bb1d67d295fe71b6734f7627cbc7c68d3924"
+                "reference": "fb3c38ee5cd18e5e1ee5397ac574409b83de9edf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/analogic/lescript/zipball/4d07bb1d67d295fe71b6734f7627cbc7c68d3924",
-                "reference": "4d07bb1d67d295fe71b6734f7627cbc7c68d3924",
+                "url": "https://api.github.com/repos/analogic/lescript/zipball/fb3c38ee5cd18e5e1ee5397ac574409b83de9edf",
+                "reference": "fb3c38ee5cd18e5e1ee5397ac574409b83de9edf",
                 "shasum": ""
             },
             "require": {
@@ -53,7 +53,7 @@
                 "encryption",
                 "letsencrypt"
             ],
-            "time": "2017-11-14 07:57:13"
+            "time": "2017-11-14 10:22:51"
         },
         {
             "name": "monolog/monolog",
