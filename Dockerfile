@@ -10,7 +10,8 @@ ADD web /opt/lemanager/web
 COPY composer.* /opt/lemanager/
 
 ADD https://getcomposer.org/installer /opt/lemanager/composer-setup.php
-RUN cd /opt/lemanager && php composer-setup.php && rm composer-setup.php && php composer.phar install
+RUN cd /opt/lemanager && php composer-setup.php && rm composer-setup.php && php composer.phar install && \
+    mkdir /run/nginx
 
 ADD rootfs /
 EXPOSE 80
