@@ -1,8 +1,8 @@
-FROM harningt/base-alpine-s6-overlay:3.2
+FROM harningt/base-alpine-s6-overlay:3.10
 MAINTAINER info@analogic.cz
 
-RUN apk --update add php php-cli php-fpm php-curl php-openssl php-phar php-json php-ctype nginx && \
-    rm -rf /var/cache/apk/* && sed -i 's/nobody/root/g' /etc/php/php-fpm.conf
+RUN apk --update add php php-cli php-fpm php-curl php-openssl php-phar php-json php-ctype php-mbstring nginx && \
+    rm -rf /var/cache/apk/* && sed -i 's/nobody/root/g' /etc/php7/php-fpm.conf
 
 ADD bin /opt/lemanager/bin
 ADD src /opt/lemanager/src
