@@ -4,7 +4,7 @@
     "swiftmailer/swiftmailer": "5.x-dev",
     "symfony/console": "^3.0",
     "symfony/yaml": "^2.8",
-    "analogic/lescript": "^0.2"
+    "analogic/lescript": "^0.2.1"
   },
   "autoload": {
     "psr-4": {

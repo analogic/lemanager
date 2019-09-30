@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bce7d3e0aa91173d30419d852249916b",
+    "content-hash": "ba1adbb0de715a9e3d2595391eca1e2e",
     "packages": [
         {
             "name": "analogic/lescript",
-            "version": "0.2.0",
+            "version": "0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/analogic/lescript.git",
-                "reference": "b1d0096a36061a3f8bcd5917b32023a16c64eb7f"
+                "reference": "35e2c83abffefcb2910e43a22a7dee4c74e0930e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/analogic/lescript/zipball/b1d0096a36061a3f8bcd5917b32023a16c64eb7f",
-                "reference": "b1d0096a36061a3f8bcd5917b32023a16c64eb7f",
+                "url": "https://api.github.com/repos/analogic/lescript/zipball/35e2c83abffefcb2910e43a22a7dee4c74e0930e",
+                "reference": "35e2c83abffefcb2910e43a22a7dee4c74e0930e",
                 "shasum": ""
             },
             "require": {
@@ -53,7 +53,7 @@
                 "encryption",
                 "letsencrypt"
             ],
-            "time": "2019-09-30T12:51:02+00:00"
+            "time": "2019-09-30T14:15:30+00:00"
         },
         {
             "name": "monolog/monolog",
