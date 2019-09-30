@@ -1,28 +1,28 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "hash": "382c88de33c2aedcd438ee7df8e89498",
-    "content-hash": "4cc0042ed0d5979303d2c42f94e234ad",
+    "content-hash": "bce7d3e0aa91173d30419d852249916b",
     "packages": [
         {
             "name": "analogic/lescript",
-            "version": "0.1.6",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/analogic/lescript.git",
-                "reference": "fb3c38ee5cd18e5e1ee5397ac574409b83de9edf"
+                "reference": "b1d0096a36061a3f8bcd5917b32023a16c64eb7f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/analogic/lescript/zipball/fb3c38ee5cd18e5e1ee5397ac574409b83de9edf",
-                "reference": "fb3c38ee5cd18e5e1ee5397ac574409b83de9edf",
+                "url": "https://api.github.com/repos/analogic/lescript/zipball/b1d0096a36061a3f8bcd5917b32023a16c64eb7f",
+                "reference": "b1d0096a36061a3f8bcd5917b32023a16c64eb7f",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
+                "ext-json": "*",
                 "ext-openssl": "*",
                 "php": ">=5.3"
             },
@@ -53,7 +53,7 @@
                 "encryption",
                 "letsencrypt"
             ],
-            "time": "2017-11-14 10:22:51"
+            "time": "2019-09-30T12:51:02+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -131,7 +131,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2017-06-19 01:22:40"
+            "time": "2017-06-19T01:22:40+00:00"
         },
         {
             "name": "psr/log",
@@ -178,7 +178,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2016-10-10 12:19:37"
+            "time": "2016-10-10T12:19:37+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -232,7 +232,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2017-08-29 20:43:58"
+            "time": "2017-08-29T20:43:58+00:00"
         },
         {
             "name": "symfony/console",
@@ -300,7 +300,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-12 16:53:41"
+            "time": "2017-11-12T16:53:41+00:00"
         },
         {
             "name": "symfony/debug",
@@ -356,7 +356,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-10 16:38:39"
+            "time": "2017-11-10T16:38:39+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -415,7 +415,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2017-10-11 12:05:26"
+            "time": "2017-10-11T12:05:26+00:00"
         },
         {
             "name": "symfony/yaml",
@@ -464,7 +464,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-05 15:25:56"
+            "time": "2017-11-05T15:25:56+00:00"
         }
     ],
     "packages-dev": [],
