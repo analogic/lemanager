@@ -40,7 +40,52 @@ Simple containerized web application for managing, issuing certificates (and ema
 
 5. reload your webserver with something like: *service nginx reload* or *killall -HUP nginx*. For doing reloads regularly when certificates automaticly renews you might find handy incrond which watch changes of filesystem and exec defined command. Or simply ad reload/HUP command to your daily/weekly cron. LEManager renews certificate every day at 1:01 after 14 days of its existence.
 
-## NGiNX snippet for proxiing challanges only
+## NGiNX snippet for proxiing LEManager
+
+```
+server {
+    listen       80;
+    server_name  *cert.example.com*;
+
+    location ^~ /.well-known {
+        proxy_pass http://<container_host>:<container_port_80>;
+    }
+
+    location / {
+        proxy_set_header Host *cert.example.com*;
+        proxy_set_header X-Forwarded_For $remote_addr;
+        proxy_pass http://<container_host>:<container_port_80>;
+        
+        # Once ssl certificate has been issued for *cert.example.com* via LEManager,
+        # comment the 3x proxy_ lines above and uncomment the line below
+        # return 301 https://$server_name$request_uri;
+    }
+
+    ...
+}
+
+# Uncomment the server block below once ssl certificate has been issued for *cert.example.com*
+# server {
+#     listen       443 ssl http2;
+#     server_name  *cert.example.com*;
+
+#     **ssl_certificate */certificates_dir/cert.example.com*/fullchain.pem;
+#     ssl_certificate_key */certificates_dir/cert.example.com*/private.pem;
+#     ssl_trusted_certificate */certificates_dir/cert.example.com*/fullchain.pem;**
+        
+#     add_header Strict-Transport-Security "max-age=31536000; includeSubdomains;";
+
+#     location / {
+#         proxy_set_header Host *cert.example.com*;
+#         proxy_set_header X-Forwarded_For $remote_addr;
+#         proxy_pass http://<container_host>:<container_port_80>;
+#     }
+
+#     ...
+# }
+```
+
+## NGiNX snippet for proxiing challenges
 
 ```
 server {
